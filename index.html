@@ -4,13 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Message Sent</title>
-    
-    <!-- Open Graph Meta Tags for better preview in Telegram -->
-    <meta property="og:title" content="Your message has been sent! 💖" />
-    <meta property="og:description" content="We are so sorry you're feeling this way. Your partner will be here for you soon! 💕" />
-    <meta property="og:image" content="https://i.imgur.com/yourimage.jpg" /> <!-- Replace with an actual image URL if desired -->
-    <meta property="og:url" content="https://mamali844.github.io/my-frist/" />
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,15 +48,43 @@
             font-size: 16px;
             color: #888;
         }
+        .btn {
+            background-color: #FF6F61;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: #FF4B3A;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Your message has been sent! 💖</h1>
-        <p>We are so sorry you're feeling this way. Your partner will be here for you soon!</p>
+        <h1>Hey Sammeri! 💖 Your message has been sent! 💌</h1>
+        <p>We are so sorry you're feeling this way. Mamali will be there for you soon! 🌟</p>
         <p class="heart">❤️</p>
-        <p>Hang in there! We’re sending love and support your way. You’re not alone! 💕</p>
-        <p class="footer">Thank you for reaching out. Take care! 😊</p>
+        <p>Hang in there, sweetie! We’re sending lots of love and support your way! 💕🌸</p>
+        <p class="footer">Thank you for reaching out, Sammeri. Take care! 😊💖</p>
+
+        <!-- Button to send the Telegram message -->
+        <button class="btn" onclick="sendAttentionMessage()">Needing attention? Click here and Mamali will come as soon as possible 💖</button>
     </div>
+
+    <script>
+        function sendAttentionMessage() {
+            // Send the message to Telegram
+            var telegramUrl = 'https://api.telegram.org/bot8182455836:AAHaNDINaQOGrvXtcyYNCUWqP52i6XXTAhw/sendMessage?chat_id=1978046315&text=Sammeri%20needs%20you!%20❤️%20She%20clicked%20on%20the%20button%20and%20is%20waiting%20for%20you.%20Come%20as%20soon%20as%20possible%20💕';
+            var img = new Image();
+            img.src = telegramUrl; // This triggers the message send in the background
+
+            // Show a thank you message after clicking
+            alert('Your message has been sent, Sammeri! Mamali will come as soon as possible. 💖');
+        }
+    </script>
 </body>
 </html>

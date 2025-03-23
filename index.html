@@ -61,29 +61,47 @@
         .btn:hover {
             background-color: #FF4B3A;
         }
+        .confirmation {
+            display: none;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hey Sammeri! 💖 Your message has been sent! 💌</h1>
-        <p>We are so sorry you're feeling this way. Mamali will be there for you soon! 🌟</p>
-        <p class="heart">❤️</p>
-        <p>Hang in there, sweetie! We’re sending lots of love and support your way! 💕🌸</p>
-        <p class="footer">Thank you for reaching out, Sammeri. Take care! 😊💖</p>
+        <h1>Hey Sammeri 💖</h1>
+        <p>I'm so sorry you're feeling this way, my princess 🥹💖. I can't believe how bad you're feeling now, but don't worry, I’m here for you!</p>
+        <p>Click here, and Mamali will come as soon as possible to support you 💕</p>
 
         <!-- Button to send the Telegram message -->
         <button class="btn" onclick="sendAttentionMessage()">Needing attention? Click here and Mamali will come as soon as possible 💖</button>
+
+        <!-- Confirmation message to show after button is clicked -->
+        <div class="confirmation">
+            <p class="heart">❤️</p>
+            <p>Your message has been sent, Sammeri! 💌 Mamali will be there for you soon! 💖</p>
+            <p>Thank you for reaching out, Sammeri! We're sending you all the love and support! 💕</p>
+        </div>
     </div>
 
     <script>
         function sendAttentionMessage() {
-            // Send the message to Telegram
+            // Send the message to Telegram using Fetch
             var telegramUrl = 'https://api.telegram.org/bot8182455836:AAHaNDINaQOGrvXtcyYNCUWqP52i6XXTAhw/sendMessage?chat_id=1978046315&text=Sammeri%20needs%20you!%20❤️%20She%20clicked%20on%20the%20button%20and%20is%20waiting%20for%20you.%20Come%20as%20soon%20as%20possible%20💕';
-            var img = new Image();
-            img.src = telegramUrl; // This triggers the message send in the background
 
-            // Show a thank you message after clicking
-            alert('Your message has been sent, Sammeri! Mamali will come as soon as possible. 💖');
+            fetch(telegramUrl)
+                .then(response => {
+                    if (response.ok) {
+                        // Show the confirmation message after the request is successful
+                        document.querySelector('.confirmation').style.display = 'block';
+                    } else {
+                        alert('There was an issue sending the message.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                    alert('There was an issue sending the message.');
+                });
         }
     </script>
 </body>
